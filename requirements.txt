@@ -1,2 +1,2 @@
-pylirics3
-billboard.py
+git+https://github.com/charlesverdad/PyLyrics
+git+https://github.com/charlesverdad/billboard-charts/
