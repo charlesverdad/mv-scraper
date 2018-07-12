@@ -10,8 +10,8 @@ Title, Artist, Billboard Rankings & Date, Lyrics, Youtube Link, Likes, Dislikes,
 
 This project requires the following dependencies to be installed:
 
-PyLyrics fork - This fork has better chance of returning lyrics
-Billboard-charts fork - This fork can 
+[PyLyrics fork](https://github.com/charlesverdad/PyLyrics) - This fork has better chance of returning lyrics
+[Billboard-charts fork](https://github.com/charlesverdad/billboard-charts) - This fork can parse year-end charts.
 
 To install the dependencies, run
 
