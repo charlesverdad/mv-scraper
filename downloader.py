@@ -48,7 +48,8 @@ if __name__ == '__main__':
 			print("Uploading to aws")
 			subprocess.check_call(['aws', 's3', 'cp', 'vids', 's3://awitiks/vids', '--recursive'])
 			print("Uploading finished. Deleting local vids.")
-			subprocess.check_call(['rm', 'vids/*'])
+			subprocess.check_call(['rm', '-r', 'vids'])
+			subprocess.check_call(['mkdir', 'vids'])
 
 
 
