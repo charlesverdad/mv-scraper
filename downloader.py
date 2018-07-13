@@ -28,7 +28,7 @@ def downloadvids_path(jsonpath):
 	print("Starting to download vids from {}".format(jsonpath))
 	print("urls")
 	p = Pool()
-	p.map(downloadvid, urls[:10])
+	p.map(downloadvid, urls)
 
 
 
