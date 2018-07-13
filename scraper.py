@@ -36,7 +36,7 @@ def get_data(params):
         pass
 
     # set complete if all data is present
-    if all([data[k] for k in data if k != 'complete']):
+    if all([data[k] != None for k in data if k != 'complete']):
         data['complete'] = True
 
     return data

@@ -1,2 +1,3 @@
 git+https://github.com/charlesverdad/PyLyrics
 git+https://github.com/charlesverdad/billboard-charts/
+pytube

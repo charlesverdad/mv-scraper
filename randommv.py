@@ -43,9 +43,8 @@ def scrape_vids(params):
     out = []
 
     for row in rows:
-        artist = row.find('h3').find('a').contents[0].strip().split(' ')[:-1]
-        artist = ''.join(artist).strip()
-        title = row.find('h4').find('a').contents[0].strip()
+        title = row.find('h3').find('a').contents[0].strip()[:-6].strip()
+        artist = row.find('h4').find('a').contents[0].strip()
         out.append((artist, title))
 
     return out
@@ -104,7 +103,7 @@ def fetch_mvs_data(vids, year):
 
 if __name__ == '__main__':
 
-    years = range(2010, 2011)
+    years = range(2010, 2018)
     for year in years:
         print("Processing year {}".format(year))
         vids = get_mvs_by_year(year)
