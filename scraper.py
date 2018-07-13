@@ -3,8 +3,8 @@ import json
 from multiprocessing import Pool
 
 import billboard
+import datetime
 from PyLyrics import PyLyrics
-
 from yt import get_stats
 
 
@@ -21,6 +21,7 @@ def get_data(params):
         'views': None,
         'likes': None,
         'dislikes': None,
+        'updated': str(datetime.datetime.now()),
         'complete': False
     }
 
@@ -48,12 +49,13 @@ def get_data_for_date(date, chartname='hot-100-songs'):
     chart = billboard.ChartData(name=chartname, date=date, yearEnd=True)
     params = [(e.artist, e.title, e.rank, date) for e in chart]
     p = Pool()
-    all_data = p.map(get_data, params)
-    print(all_data)
-
-    with open('{}_data.json'.format(date), 'w') as f:
-        f.write(json.dumps(all_data))
+    return p.map(get_data, params)
 
 if __name__ == '__main__':
-    get_data_for_date('2017')
+
+    years = range(2010, 2018)
+    for year in years:
+        data = get_data_for_date(str(year))
+        with open('{}_data.json'.format(year), 'w') as f:
+            f.write(json.dumps(all_data))
 
