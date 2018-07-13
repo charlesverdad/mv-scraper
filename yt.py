@@ -71,17 +71,14 @@ def scrapeVid(link):
     dislikes = None
 
     for button in buttons:
-        print(button)
         if "Gusto ko ito" in str(button):
             likes = to_int(button.find('span').contents[0].strip())
         if "Hindi ko ito gusto" in str(button):
             dislikes = to_int(button.find('span').contents[0].strip())
 
     # year_uploaded = int(soup.find('strong', {'class', 'watch-time-text'}).contents[0].strip().split(' ')[-1])
-
-    print(views, likes, dislikes)
-
     data ={
+        'youtube_link': url,
         'views': views,
         'likes': likes,
         'dislikes': dislikes
