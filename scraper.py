@@ -57,5 +57,5 @@ if __name__ == '__main__':
     for year in years:
         data = get_data_for_date(str(year))
         with open('{}_data.json'.format(year), 'w') as f:
-            f.write(json.dumps(all_data))
+            f.write(json.dumps(data))
 
