@@ -1,6 +1,7 @@
 # downloads youtube videos and (maybe) upload them to s3
 from pytube import YouTube
 import json
+import subprocess
 
 from multiprocessing import Pool
 
@@ -44,7 +45,10 @@ if __name__ == '__main__':
 			fn = item.format(year=str(year))
 			downloadvids_path('dataset/' + fn)
 
-		break
+			print("Uploading to aws")
+			subprocess.check_call(['aws', 's3', 'cp', 'vids', 's3://awitiks/vids', '--recursive'])
+			print("Uploading finished. Deleting local vids.")
+			subprocess.check_call(['rm', 'vids/*'])
 
 
 
