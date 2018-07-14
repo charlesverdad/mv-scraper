@@ -1,7 +1,7 @@
 import subprocess
 import json
 from multiprocessing import Pool
-
+g
 def run_rekognition(fn):
     # starts label detection job and returns jobid
     # aws rekognition start-label-detection --video "S3Object={Bucket='awitiks',Name='vids/-2U0Ivkn2Ds.mp4'}" --region ap-northeast-1
@@ -35,4 +35,6 @@ with open('filenames.json', 'w') as f:
 p = Pool()
 fn_rekognition_label_jobs = p.map(run_rekognition, filenames[:5])
 
+with open('rekognition-labels-jobs.json', 'w') as f:
+    f.write(json.dumps(fn_rekognition_label_jobs))
 
