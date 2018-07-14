@@ -1,5 +1,7 @@
 import subprocess
 import json
+from multiprocessing import Pool
+
 def run_rekognition(fn):
     # starts label detection job and returns jobid
     # aws rekognition start-label-detection --video "S3Object={Bucket='awitiks',Name='vids/-2U0Ivkn2Ds.mp4'}" --region ap-northeast-1
@@ -12,7 +14,8 @@ def run_rekognition(fn):
         '--region',
         'ap-northeast-1'
     ]
-    print(cmd)
+
+    print(''.join(cmd))
     # cmd = "aws rekognition start-label-detection --video \"S3Object={Bucket='awitiks',Name='vids/{}'}\" --region ap-northeast-1".format(fn)
     resp = subprocess.check_output(cmd)
     # print(str(resp))
